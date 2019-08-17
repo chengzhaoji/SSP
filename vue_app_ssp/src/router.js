@@ -1,13 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloContainer from "./components/HelloWorld.vue"
-
-
+import Home from './views/Home.vue'
+import carousel from './components/ssp/carousel.vue'
 Vue.use(Router)
+
 export default new Router({
   routes: [
-    //组件访问路径    组件名 
-    {path:'/',component:HelloContainer},
-    
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {path:'/carousel',component:carousel}
   ]
 })

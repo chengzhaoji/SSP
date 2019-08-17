@@ -1,43 +1,15 @@
 <template>
- <div class="app-container">
-    <!--显示组件容器-->
-    <router-view>
-    </router-view>
- </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
+
 <style>
-   .app-container{
-     padding-top:0px;
-     padding-bottom:0px;
-     overflow-x:hidden;
-   }
- .mui-bar-tab .mui-tab-item-tao.mui-active {
-    color: #007aff;
- }
-.mui-bar-tab .mui-tab-item-tao {
-    display: table-cell;
-    overflow: hidden;
-    width: 1%;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #929292;
-}
-.mui-bar-tab .mui-tab-item-tao .mui-icon {
-    top: 3px;
-    width: 24px;
-    height: 24px;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.mui-bar-tab .mui-tab-item-tao .mui-icon~.mui-tab-label {
-   font-size:11px;
-   display:block;
-   overflow:hidden;
-   text-overflow:ellipsis;
-
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>

@@ -28,3 +28,11 @@ server.use(session({
 server.use(express.static("public"));
 //5:启动监听3000
 server.listen(3000);
+
+server.get("/carousel",(req,res)=>{
+    var sql=`SELECT uname,uname_img,title,src FROM ssp_index_carousel`;
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.send({code:1,msg:'查询成功',data:result});
+    })
+})

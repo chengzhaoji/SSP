@@ -1,7 +1,7 @@
 <template>
 <section>
   <div id="demo" class="carousel" :style="{width:innerWidth+'px'}">
-    <!--1.轮播图片-->
+    <!--1.轮播图片 赖锦洲todo-->
     <ul :class="ulClass" :style="ulStyle" class="carousel-inner">
       <li v-for="(img,i) of imgs" :key="i" :style="{width:innerWidth+'px'}">
         <router-link to="javascript:;" class="carousel-item">

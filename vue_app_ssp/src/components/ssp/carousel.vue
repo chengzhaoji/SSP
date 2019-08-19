@@ -2,14 +2,14 @@
 <section>
   <div id="demo" class="carousel" :style="{width:innerWidth+'px'}">
     <!--1.轮播图片 赖锦洲todo-->
-    <ul :class="ulClass" :style="ulStyle" class="carousel-inner">
-      <li v-for="(img,i) of imgs" :key="i" :style="{width:innerWidth+'px'}">
-        <router-link to="javascript:;" class="carousel-item">
+    <ul :class="ulClass" :style="ulStyle" class="carousel-inner" v-if="imgs.length>0">
+      <li v-for="(img,i) of imgs" :key="i" :style="{width:innerWidth+'px'}" class="carousel-item">
+        <router-link to="javascript:;">
           <img :src="img.src" :style="{width:innerWidth+'px'}"/>
         </router-link>
          <!--左下角作者-->
-        <div class="carousel-user" :style="i=i ? 'display:block' : 'display:none'">
-          <a></a>
+        <div class="carousel-user">
+          <a :style="{backgroundImage:'url(http://127.0.0.1:3000/'+img.uname_img+')'}"></a>
           <a>{{img.uname}}</a>
         </div>
       </li>
@@ -17,6 +17,10 @@
         <router-link to="javascript:;">
           <img :src="imgs[0].src" :style="{width:innerWidth+'px'}" />
         </router-link>
+        <div class="carousel-user">
+          <a :style="{backgroundImage:'url(http://127.0.0.1:3000/'+imgs[0].uname_img+')'}"></a>
+          <a>{{imgs[0].uname}}</a>
+        </div>
       </li>
     </ul>
    
@@ -195,31 +199,37 @@ section>.carousel>.carousel-indicators li.active{
   }
   section>.carousel>.carousel-inner>li>.carousel-user{
     position:absolute;
-    bottom:0;
+    bottom:16px;
     left:0;
-    width:100px;
+    width:200px;
     height:40px;
   }
-  section>.carousel>.carousel-inner>li>.carousel-user>a:first-child{
+  section>.carousel>.carousel-inner>.carousel-item{
+    position:relative;
+  }
+  section>.carousel>.carousel-inner>.carousel-item>.carousel-user>a:first-child{
     display: inline-block;
     width:40px;
     height:40px;
+    border:1px solid #f00;
     border-radius: 100%;
     background-size: 100%;
     text-decoration: none;
     cursor: pointer;
     position:absolute;
-    left:5px;
+    left:16px;
+    top:-5px;
   }
-  section>.carousel>.carousel-inner>li>.carousel-user>a:last-child{
+  section>.carousel>.carousel-inner>.carousel-item>.carousel-user>a:last-child{
     display:inline-block;
-    width:80px;
+    width:100px;
     height:20px;    
     text-decoration: none;
+    text-align:left;
     position:absolute;
-    left:45px;
-    top:0px;
+    left:60px;
+    top:6px;
     font-size:10px;
-    color:cornflowerblue;
+    color:#fff;
   }
 </style>
